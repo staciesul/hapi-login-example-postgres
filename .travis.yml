@@ -2,18 +2,19 @@ language: node_js
 node_js:
   - "4.2.3"
   - "5.5.0"
+sudo: false
+before_install:
+  - pip install --user codecov
+  - $CXX --version
 after_success:
   - codecov --file coverage/lcov.info --disable search
 env:
-  - CXX=g++-4.8
-  - JWT_SECRET="EverythingIsAwesome!"
+  global:
+    - CXX=g++-4.8
+    - JWT_SECRET="EverythingIsAwesome!"
 addons:
   apt:
     sources:
     - ubuntu-toolchain-r-test
     packages:
     - g++-4.8
-sudo: false
-before_install:
-  - pip install --user codecov
-  - $CXX --version
