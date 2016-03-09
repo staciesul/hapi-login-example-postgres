@@ -74,3 +74,7 @@ test(file+"Attempt to re-register with the same email address", function(t) {
     server.stop(function(){ t.end() });
   });
 });
+
+test.onFinish(function () {
+  process.exit();
+})
