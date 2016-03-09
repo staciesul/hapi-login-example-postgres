@@ -16,6 +16,9 @@ We did not *find* an ***end-to-end*** solution/tutorial
 for ***login*** (*using email & password*) in Hapi.js apps,
 so we *wrote* it.
 
+By [popular demand](https://github.com/dwyl/hapi-register/issues/7#issuecomment-191713445)
+this example focusses on PostgreSQL.
+
 If ***anything*** is ***unclear*** in this (*or any of our other repos*),
 ***please tell us***:
 [![Join the chat at https://gitter.im/dwyl/chat](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/dwyl/chat/)  
@@ -25,9 +28,18 @@ If ***anything*** is ***unclear*** in this (*or any of our other repos*),
 ## What?
 
 This repo is a *showcase* for how to use the
-[**hapi-login**](https://github.com/nelsonic/hapi-login) plugin
-for a *simple* (*yet complete*) web/app login process.
+[**hapi-register**](https://github.com/dwyl/hapi-register) and
+[**hapi-login**](https://github.com/dwyl/hapi-login) plugins
+for a *simple* web/app login process.
 
+> If you have requests/suggestions for how to *extend* this example,
+[*please let us know!*](https://github.com/dwyl/hapi-login-example-postgres)
+
+### Highlights:
+
++ ALL values inserted into the database are *escaped* using
+[`pg-escape`](https://github.com/segmentio/pg-escape)
+(*made by [@TJ](https://github.com/tj) & Co ... so you know its decent*)
 
 ## Try it: https://hapi-login.herokuapp.com/
 

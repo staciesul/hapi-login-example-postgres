@@ -9,10 +9,11 @@ var assert = require('assert');
 
 function create_tables (callback) {
   pg.connect(process.env.DATABASE_URL, function(err, client, done) {
-    assert(!err);
-    var file_path = require('path').resolve(__dirname + '/database_setup.sql');
-    var query = require('fs').readFileSync(file_path, 'utf8').toString();
+    assert(!err); // if db connection fails then EXPLODE!!
+    var file = require('path').resolve(__dirname + '/../database_setup.sql');
+    var query = require('fs').readFileSync(file, 'utf8').toString();
     // see: http://stackoverflow.com/a/13823560/1148249
+    console.log('\n', query);
     client.query(query, function(err, result) {
       done();       // call `done()` to release the client back to the pool
       client.end(); // close connection to database
@@ -23,9 +24,7 @@ function create_tables (callback) {
 
 test('Create "users" table in test databse', function (t) {
   create_tables(function (err, data) {
-    // console.log(err);
-    // console.log(data);
-    t.equal(data.command, 'CREATE', 'Database Tables Created.');
+    t.equal(data.command, 'INSERT', 'DB Table Created & Test Data Inserted');
     t.end();
   })
 });
