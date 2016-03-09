@@ -6,14 +6,13 @@ var file  = dir + __filename.replace(__dirname, '') + ' -> ';
 var server = require("../lib/server.js"); // load hapi server (the easy way!)
 
 /************************* TESTS ***************************/
-test(file + "GET / Warm Up the Engine", function(t) {
+test(file + "GET / (confirm server is working with a basic test)", function(t) {
   var options = {
     method: "GET",
     url: "/"
   };
   server.inject(options, function(response) {
     t.equal(response.statusCode, 200, "Server is working.");
-
     t.end();
   });
 });
