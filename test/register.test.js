@@ -4,7 +4,7 @@ var dir   = __dirname.split('/')[__dirname.split('/').length-1];
 var file  = dir + __filename.replace(__dirname, '') + ' -> ';
 
 var server = require("../lib/server.js"); // load hapi server (the easy way!)
-
+require('./_create_table.test.js');
 /************************* TESTS ***************************/
 test(file + "GET /register (expect to see reg form)", function(t) {
   var options = {
@@ -35,7 +35,7 @@ test(file+'Attempt to submit a registration without password', function(t){
 test(file+'Attempt to register with unrecognised field', function(t){
   var options = {
     method: "POST",
-    url: "/reg",
+    url: "/register",
     payload : { email:'this@here.net', password: 'pass4567', id:123 }
   };
 
@@ -47,21 +47,30 @@ test(file+'Attempt to register with unrecognised field', function(t){
   });
 })
 
-var person = {
-  "email" : 'dwyl.test+auth_basic' +Math.random()+'@gmail.com',
-  "password":"EverythingIsAwesome"
-}
-
-test.only(file+"Successfully register with email and password", function(t) {
+test(file+"Register with email and password", function(t) {
   var options = {
     method: "POST",
     url: "/register",
-    payload : { email:'this@here.net', password: 'pass4567' }
+    payload : { email:'alex@example.net', password: 'pass4567' }
   };
 
   server.inject(options, function(response) {
     // console.log(response)
     t.equal(response.statusCode, 200, "Register worked with email and password");
+    server.stop(function(){ t.end() });
+  });
+});
+
+test(file+"Attempt to re-register with the same email address", function(t) {
+  var options = {
+    method: "POST",
+    url: "/register",
+    payload : { email:'alex@example.net', password: 'pass4567' }
+  };
+
+  server.inject(options, function(response) {
+    // console.log(response.result)
+    t.equal(response.statusCode, 400, "Register worked with email and password");
     server.stop(function(){ t.end() });
   });
 });
