@@ -41,6 +41,7 @@ The best way to get started is to run this example *locally*.
 
 ```sh
 git clone git@github.com:dwyl/hapi-login-example-postgres.git
+cd hapi-login-example-postgres
 ```
 #### 2. Install *Dependencies* from NPM
 
@@ -48,7 +49,25 @@ git clone git@github.com:dwyl/hapi-login-example-postgres.git
 npm install
 ```
 
-#### 3. Run the Server
+#### 3. Ensure you have the Required Environment Variables
+
+create an `config.env` file in your `hapi-login-example-postgres` directory.
+add a line for your `DATABASE_URL` variable:
+e.g:
+```sh
+export DATABASE_URL=postgres:password//postgres:@localhost/test
+```
+> default on mac is: export DATABASE_URL=postgres://postgres:@localhost/test  
+> if you don't *already* have a database called `test` on your system,  
+> create it now by running this command in your psql/pgadmin: `CREATE DATABASE test;`
+
+#### 4. Run the Tests
+
+```sh
+npm test
+```
+
+#### 5. Run the Server
 
 ```sh
 npm start

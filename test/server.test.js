@@ -1,10 +1,9 @@
 var test   = require('tape');
-// we display the file (name) in each test name
+// we display the file (name) in each test name for stack trace
 var dir   = __dirname.split('/')[__dirname.split('/').length-1];
 var file  = dir + __filename.replace(__dirname, '') + ' -> ';
 
-/************************ LOAD HAPI SERVER ***************************/
-var server = require("../example/server.js");
+var server = require("../lib/server.js"); // load hapi server (the easy way!)
 
 /************************* TESTS ***************************/
 test(file + "GET / Warm Up the Engine", function(t) {
