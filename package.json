@@ -10,7 +10,8 @@
   "scripts": {
     "fast": "./node_modules/tape/bin/tape ./test/*.js",
     "test": "istanbul cover ./node_modules/tape/bin/tape ./test/*.js  | node_modules/tap-spec/bin/cmd.js",
-    "start": "PORT=8000 ./node_modules/.bin/nodemon lib/server.js"
+    "dev": "PORT=8000 ./node_modules/.bin/nodemon lib/server.js",
+    "start": "node lib/server.js"
   },
   "repository": {
     "type": "git",
