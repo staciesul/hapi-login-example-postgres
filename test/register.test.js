@@ -4,7 +4,7 @@ var dir   = __dirname.split('/')[__dirname.split('/').length-1];
 var file  = dir + __filename.replace(__dirname, '') + ' -> ';
 
 var server = require("../lib/server.js"); // load hapi server (the easy way!)
-require('./_create_table.test.js');
+// require('./_create_table.test.js');
 /************************* TESTS ***************************/
 test(file + "GET /register (expect to see reg form)", function(t) {
   var options = {
@@ -55,7 +55,7 @@ test(file+"Register with email and password", function(t) {
   };
 
   server.inject(options, function(response) {
-    // console.log(response)
+    // console.log(response.result);
     t.equal(response.statusCode, 200, "Register worked with email and password");
     t.end();
   });
@@ -69,7 +69,7 @@ test(file+"Attempt to re-register with the same email address", function(t) {
   };
 
   server.inject(options, function(response) {
-    t.equal(response.statusCode, 400, "Register worked with email and password");
+    t.equal(response.statusCode, 400, "Attempt to Re-register does not work!");
     t.end()
   });
 });

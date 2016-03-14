@@ -5,11 +5,13 @@ CREATE SCHEMA public;
 CREATE TABLE people(
   id SERIAL PRIMARY KEY,
   email VARCHAR(254) UNIQUE NOT NULL,
+  name VARCHAR(100) DEFAULT NULL,
   password VARCHAR(60) NOT NULL
 );
 /* insert a person into the people table */
-INSERT INTO people (email, password)
+INSERT INTO people (email, name, password)
 VALUES (
   'test@test.net',
+  'Jimmy Tester',
   '$2a$12$OgPE9DUNM0KaSodSQVJvw.36GjolssAeO.dfi7a9cmc9KbQTDTj7W'
 );

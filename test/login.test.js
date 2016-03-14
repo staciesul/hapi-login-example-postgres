@@ -1,3 +1,4 @@
+require('./_create_table.test.js'); // create the required database tables
 var test   = require('tape');
 // we display the file (name) in each test name for stack trace
 var dir   = __dirname.split('/')[__dirname.split('/').length-1];
@@ -81,9 +82,7 @@ test(file+"/login with unregistered email address", function(t) {
     t.equal(response.statusCode, 401, "Login Faild (email not registered)");
     t.end();
   });
-
 });
-
 
 test(file+"/login With Valid Data (Success Test)", function(t) {
   // first register a new account
