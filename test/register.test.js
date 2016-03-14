@@ -13,7 +13,7 @@ test(file + "GET /register (expect to see reg form)", function(t) {
   };
   server.inject(options, function(response) {
     t.equal(response.statusCode, 200, "Server is working.");
-    server.stop(function(){ t.end() });
+    t.end();
   });
 });
 
@@ -28,7 +28,7 @@ test(file+'Attempt to submit a registration without password', function(t){
     // joi returns 400 when auth validation fails.
     var code = response.statusCode
     t.equal(code, 400, 'Register without password fails -> '+code);
-    server.stop(function(){ t.end() });
+    t.end();
   });
 })
 
@@ -43,7 +43,7 @@ test(file+'Attempt to register with unrecognised field', function(t){
     // joi returns 400 when auth validation fails.
     var code = response.statusCode
     t.equal(code, 400, 'Register with unknown field fails -> '+code);
-    server.stop(function(){ t.end() });
+    t.end();
   });
 })
 
@@ -57,7 +57,7 @@ test(file+"Register with email and password", function(t) {
   server.inject(options, function(response) {
     // console.log(response)
     t.equal(response.statusCode, 200, "Register worked with email and password");
-    server.stop(function(){ t.end() });
+    t.end();
   });
 });
 
@@ -69,12 +69,11 @@ test(file+"Attempt to re-register with the same email address", function(t) {
   };
 
   server.inject(options, function(response) {
-    // console.log(response.result)
     t.equal(response.statusCode, 400, "Register worked with email and password");
-    server.stop(function(){ t.end() });
+    t.end()
   });
 });
 
 test.onFinish(function () {
-  process.exit();
+  server.stop(function(){ });
 })

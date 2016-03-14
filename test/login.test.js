@@ -29,7 +29,7 @@ test(file+"/login without password", function(t) {
   server.inject(options, function(response) {
     // console.log(response)
     t.equal(response.statusCode, 400, "Password is required!");
-    server.stop(function(){ t.end() });
+    t.end()
   });
 });
 
@@ -43,7 +43,7 @@ test(file+"/login without email", function(t) {
   server.inject(options, function(response) {
     // console.log(response)
     t.equal(response.statusCode, 400, "Email is required!");
-    server.stop(function(){ t.end() });
+    t.end()
   });
 });
 
@@ -57,6 +57,10 @@ test(file+"/login With Valid Data (Success Test)", function(t) {
   server.inject(options, function(response) {
     // console.log(response)
     t.equal(response.statusCode, 200, "Great Success!");
-    server.stop(function(){ t.end() });
+    t.end();
   });
 });
+
+test.onFinish(function () {
+  server.stop(function(){});
+})
