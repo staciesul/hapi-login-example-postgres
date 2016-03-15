@@ -1,7 +1,8 @@
-# hapi-login-example-postgres-postgres
+# Hapi Register + Login Example (*using*) PostgreSQL
+
 A login form using hapi-auth-register, hapi-auth-login &amp; hapi-auth-jwt2 with a PostgreSQL DB
 
-[![Build Status](https://travis-ci.org/dwyl/hapi-login-example-postgres-postgres.svg?branch=master)](https://travis-ci.org/dwyl/hapi-login-example-postgres-postgres)
+[![Build Status](https://travis-ci.org/dwyl/hapi-login-example-postgres.svg?branch=master)](https://travis-ci.org/dwyl/hapi-login-example-postgres)
 [![codecov.io](http://codecov.io/github/dwyl/hapi-login-example-postgres/coverage.svg?branch=master)](http://codecov.io/github/dwyl/hapi-login-example-postgres?branch=master)
 [![Code Climate](https://codeclimate.com/github/dwyl/hapi-login-example-postgres/badges/gpa.svg)](https://codeclimate.com/github/dwyl/hapi-login-example-postgres)
 [![Dependency Status](https://david-dm.org/dwyl/hapi-login-example-postgres.svg)](https://david-dm.org/dwyl/hapi-login-example-postgres)
@@ -10,14 +11,13 @@ A login form using hapi-auth-register, hapi-auth-login &amp; hapi-auth-jwt2 with
 
 ## Why?
 
-> "*For the things we have to learn before we can do them, we learn by doing them.*" ~ [Aristotle](https://www.goodreads.com/quotes/tag/learning-by-doing)
-
 We did not *find* an ***end-to-end*** solution/tutorial
 for ***login*** (*using email & password*) in Hapi.js apps,
 so we *wrote* it.
 
-By [popular demand](https://github.com/dwyl/hapi-register/issues/7#issuecomment-191713445)
-this example focusses on PostgreSQL.
+By [***popular demand***](https://github.com/dwyl/hapi-register/issues/7#issuecomment-191713445)
+this example *focusses* on ***PostgreSQL***,  
+but it can *easily* be adapted to work with *any* backed/database.
 
 If ***anything*** is ***unclear*** in this (*or any of our other repos*),
 ***please tell us***:
@@ -27,12 +27,17 @@ If ***anything*** is ***unclear*** in this (*or any of our other repos*),
 
 ## What?
 
-This repo is a *showcase* for how to use the
-[**hapi-register**](https://github.com/dwyl/hapi-register) and
-[**hapi-login**](https://github.com/dwyl/hapi-login) plugins
-for a *simple* web/app login process.
+This repo is a *showcase* for how to build a login flow using Hapi.js.  
+We use the following plugins:
++ [**hapi-register**](https://github.com/dwyl/hapi-register)
++ [**hapi-login**](https://github.com/dwyl/hapi-login)
++ [**hapi-postgres-connection**](https://github.com/dwyl/hapi-postgres-connection)
++ [**hapi-auth-jwt2**](https://github.com/dwyl/hapi-auth-jwt2)
 
-> If you have requests/suggestions for how to *extend* this example,
+Each one is *hand-crafted*, *tested* and *maintained* by [*us*](https://github.com/dwyl),  
+feel free to use the code how ever you see fit.
+
+> Note: If you have requests/suggestions for how to *extend* this example,
 [*please let us know!*](https://github.com/dwyl/hapi-login-example-postgres)
 
 ### Highlights:
@@ -40,6 +45,8 @@ for a *simple* web/app login process.
 + ALL values inserted into the database are *escaped* using
 [`pg-escape`](https://github.com/segmentio/pg-escape)
 (*made by [@TJ](https://github.com/tj) & Co ... so you know its decent*)
++ We use [`Joi`](https://github.com/hapijs/joi) for validation - which
+we display in the client UI. (*see screenshots below*)
 
 ## Try it: https://hapi-login.herokuapp.com/
 
