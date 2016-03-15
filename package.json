@@ -1,6 +1,6 @@
 {
   "name": "hapi-login-example-postgres",
-  "version": "1.0.13",
+  "version": "1.0.14",
   "description": "Example of building a registration/login flow using Hapi.js and PostgreSQL",
   "main": "index.js",
   "directories": {
@@ -38,9 +38,9 @@
     "handlebars": "^4.0.5",
     "hapi": "^13.0.0",
     "hapi-auth-jwt2": "^5.4.1",
-    "hapi-login": "^1.0.13",
+    "hapi-login": "^1.0.14",
     "hapi-postgres-connection": "^1.0.2",
-    "hapi-register": "^1.0.13",
+    "hapi-register": "^1.0.14",
     "hoek": "^3.0.4",
     "joi": "^8.0.4",
     "pg": "^4.5.1",
