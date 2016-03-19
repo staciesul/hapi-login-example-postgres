@@ -1,5 +1,6 @@
 require('./_create_table.test.js'); // create the required database tables
 var test   = require('tape');
+var JWT = require('jsonwebtoken'); // https://github.com/dwyl/learn-json-web-tokens
 // we display the file (name) in each test name for stack trace
 var dir   = __dirname.split('/')[__dirname.split('/').length-1];
 var file  = dir + __filename.replace(__dirname, '') + ' -> ';
@@ -84,6 +85,7 @@ test(file+"/login with unregistered email address", function(t) {
   });
 });
 
+var COOKIE;
 test(file+"/login With Valid Data (Success Test)", function(t) {
   // first register a new account
   var email = 'dwyl.test+' + Math.floor(Math.random()*1000000)  + '@gmail.com';
@@ -99,10 +101,24 @@ test(file+"/login With Valid Data (Success Test)", function(t) {
     options.url = '/login'; // now login
     server.inject(options, function(response) {
       t.equal(response.statusCode, 200, "Login Succeeded!");
-      t.end();
+      COOKIE = response.headers['set-cookie'][0];
+      var token = response.headers['set-cookie'][0].replace('token=', '');
+      // console.log(token)
+      var decoded = JWT.decode(token);
+      // console.log(decoded);
+      t.equal(decoded.sid.length, 36, 'User ID: ' + decoded.sid);
+      // t.end();
+      var opts = { method: 'GET', url: '/admin', headers: { cookie: COOKIE }}
+      server.inject(opts, function(response){
+        // console.log(' - - - - - - - - - - - - - - - - - - /admin response:');
+        // console.log(response.result);
+        t.equal(response.statusCode, 200, "Admin Page Viewed");
+        t.end();
+      });
     });
   });
 });
+
 
 test.onFinish(function () {
   server.stop(function(){});

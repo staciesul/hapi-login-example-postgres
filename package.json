@@ -32,6 +32,7 @@
   },
   "homepage": "https://github.com/dwyl/hapi-login-example-postgres#readme",
   "dependencies": {
+    "aguid": "^1.0.4",
     "bcrypt": "^0.8.5",
     "boom": "^3.1.2",
     "env2": "^2.0.6",
@@ -43,6 +44,7 @@
     "hapi-register": "^1.0.14",
     "hoek": "^3.0.4",
     "joi": "^8.0.4",
+    "jsonwebtoken": "^5.7.0",
     "pg": "^4.5.1",
     "pg-escape": "^0.2.0",
     "validator": "^5.1.0",

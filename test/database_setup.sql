@@ -17,12 +17,13 @@ VALUES (
 );
 /* sessions */
 CREATE TABLE sessions (
-  session_id SERIAL PRIMARY KEY,
+  session_id VARCHAR(36),
   person_id INTEGER NOT NULL,
   start_timestamp INTEGER DEFAULT EXTRACT(EPOCH FROM CURRENT_TIMESTAMP),
   end_timestamp INTEGER DEFAULT null
 );
-INSERT INTO sessions (person_id)
+INSERT INTO sessions (session_id, person_id)
 VALUES (
+  '525be54a-1101-46bf-97d7-2e9c89dd1b16',
   '1'
 );
