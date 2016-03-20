@@ -40,7 +40,7 @@
     "hapi": "^13.0.0",
     "hapi-auth-jwt2": "^5.4.1",
     "hapi-login": "^1.0.14",
-    "hapi-postgres-connection": "^1.0.2",
+    "hapi-postgres-connection": "^2.0.1",
     "hapi-register": "^1.0.14",
     "hoek": "^3.0.4",
     "joi": "^8.0.4",
