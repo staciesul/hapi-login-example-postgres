@@ -75,6 +75,7 @@ add a line for your `DATABASE_URL` variable:
 e.g:
 ```sh
 export DATABASE_URL=postgres:password//postgres:@localhost/test
+export JWT_SECRET=EverythingIsAwesome
 ```
 > default on mac is: export DATABASE_URL=postgres://postgres:@localhost/test  
 > if you don't *already* have a database called `test` on your system,  

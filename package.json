@@ -45,7 +45,6 @@
     "hoek": "^3.0.4",
     "joi": "^8.0.4",
     "jsonwebtoken": "^5.7.0",
-    "pg": "^4.5.1",
     "pg-escape": "^0.2.0",
     "validator": "^5.1.0",
     "vision": "^4.0.1"

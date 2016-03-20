@@ -4,7 +4,8 @@ var test = require('tape');
 var dir = __dirname.split('/')[__dirname.split('/').length-1];
 var file = dir + __filename.replace(__dirname, '') + ' -> ';
 
-var pg = require('../node_modules/pg/lib'); // manual connection just for this
+var _pg = '../node_modules/hapi-postgres-connection/node_modules/pg/lib/index.js'
+var pg = require(_pg); // manual connection just for this
 var assert = require('assert');
 
 function create_tables (callback) {
