@@ -8,10 +8,11 @@
     "test": "test"
   },
   "scripts": {
-    "fast": "./node_modules/tape/bin/tape ./test/*.js",
-    "test": "istanbul cover ./node_modules/tape/bin/tape ./test/*.js  | node_modules/tap-spec/bin/cmd.js",
+    "create": "node test/_create_table.js",
+    "fast": "./node_modules/tape/bin/tape ./test/*.test.js",
+    "test": "npm run create && istanbul cover ./node_modules/tape/bin/tape ./test/*.test.js  | node_modules/tap-spec/bin/cmd.js",
     "dev": "PORT=8000 ./node_modules/.bin/nodemon lib/server.js",
-    "start": "node lib/server.js"
+    "start": "npm run create && node lib/server.js"
   },
   "repository": {
     "type": "git",
@@ -40,7 +41,7 @@
     "hapi": "^13.0.0",
     "hapi-auth-jwt2": "^5.4.1",
     "hapi-login": "^1.0.14",
-    "hapi-postgres-connection": "^2.0.1",
+    "hapi-postgres-connection": "^2.1.1",
     "hapi-register": "^1.0.14",
     "hoek": "^3.0.4",
     "joi": "^8.0.4",
@@ -50,6 +51,7 @@
     "vision": "^4.0.1"
   },
   "devDependencies": {
+    "decache": "^3.0.5",
     "istanbul": "^0.4.2",
     "nodemon": "^1.9.1",
     "tap-spec": "^4.1.1",

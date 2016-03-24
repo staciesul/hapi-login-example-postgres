@@ -1,4 +1,3 @@
-require('./_create_table.test.js'); // create the required database tables
 var test   = require('tape');
 var JWT = require('jsonwebtoken'); // https://github.com/dwyl/learn-json-web-tokens
 // we display the file (name) in each test name for stack trace
