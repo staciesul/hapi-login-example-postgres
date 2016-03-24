@@ -1,6 +1,4 @@
 require('env2')('./config.env'); // see: https://github.com/dwyl/env2
-var test = require('tape');
-var assert = require('assert');
 
 // avoid having pg as a dependency by simply requiring the nested dependcy
 var _pg = '../node_modules/hapi-postgres-connection/node_modules/pg/lib/index.js';
@@ -20,9 +18,6 @@ function create_tables (callback) {
   });
 }
 
-test('Create "people" table in test databse', function (t) {
-  create_tables(function (err, data) {
-    t.equal(data.command, 'INSERT', 'DB Table Created & Test Data Inserted');
-    t.end();
-  });
+create_tables(function (err, data) {
+  console.log(data.command, 'DB Table Created & Test Data Inserted');
 });
