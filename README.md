@@ -34,7 +34,7 @@ We use the following plugins:
 + [**hapi-postgres-connection**](https://github.com/dwyl/hapi-postgres-connection)
 + [**hapi-auth-jwt2**](https://github.com/dwyl/hapi-auth-jwt2)
 
-Each one is *hand-crafted*, *tested* and *maintained* by [*us*](https://github.com/dwyl),  
+Each one is *hand-crafted*, *tested* and *maintained* by [*us*](https://github.com/dwyl),
 feel free to use the code how ever you see fit.
 
 > Note: If you have requests/suggestions for how to *extend* this example,
@@ -44,7 +44,7 @@ feel free to use the code how ever you see fit.
 
 + ALL values inserted into the database are *escaped* using
 [`pg-escape`](https://github.com/segmentio/pg-escape)
-(*made by [@TJ](https://github.com/tj) & Co ... so you know its decent*)
+(*made by [@TJ](https://github.com/tj) & Co ... so you know its good*)
 + We use [`Joi`](https://github.com/hapijs/joi) for validation - which
 we display in the client UI. (*see screenshots below*)
 
@@ -95,11 +95,10 @@ Note: running `npm test` will first execute `npm run create` which creates
 the necessary Database Tables to run the app. see:
 [/test/database_setup.sql](https://github.com/dwyl/hapi-login-example-postgres/blob/master/test/database_setup.sql)
 
-
 #### 5. Run the Server
 
 ```sh
-npm start
+npm run dev
 ```
 
 That's it.  

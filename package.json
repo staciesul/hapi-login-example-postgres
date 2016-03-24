@@ -12,7 +12,7 @@
     "fast": "./node_modules/tape/bin/tape ./test/*.test.js",
     "test": "npm run create && istanbul cover ./node_modules/tape/bin/tape ./test/*.test.js  | node_modules/tap-spec/bin/cmd.js",
     "dev": "PORT=8000 ./node_modules/.bin/nodemon lib/server.js",
-    "start": "node lib/server.js"
+    "start": "npm run create && node lib/server.js"
   },
   "repository": {
     "type": "git",
