@@ -1,6 +1,6 @@
 {
   "name": "hapi-login-example-postgres",
-  "version": "1.0.14",
+  "version": "1.0.15",
   "description": "Example of building a registration/login flow using Hapi.js and PostgreSQL",
   "main": "index.js",
   "directories": {
