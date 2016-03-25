@@ -11,7 +11,6 @@ function create_tables (callback) {
     console.log('\n', query);
     client.query(query, function(err, result) {
       client.end(); // close connection to database
-      require('decache')(_pg);
       return callback(err, result);
     });
   });
