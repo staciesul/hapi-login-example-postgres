@@ -1,6 +1,6 @@
 {
   "name": "hapi-login-example-postgres",
-  "version": "1.0.15",
+  "version": "1.0.16",
   "description": "Example of building a registration/login flow using Hapi.js and PostgreSQL",
   "main": "index.js",
   "directories": {
@@ -9,10 +9,12 @@
   },
   "scripts": {
     "create": "node test/_create_table.js",
+    "coverage": "istanbul cover ./node_modules/tape/bin/tape ./test/*.test.js  | node_modules/tap-spec/bin/cmd.js",
     "fast": "./node_modules/tape/bin/tape ./test/*.test.js",
-    "test": "npm run create && istanbul cover ./node_modules/tape/bin/tape ./test/*.test.js  | node_modules/tap-spec/bin/cmd.js",
+    "test": "npm run create && npm run coverage",
     "dev": "PORT=8000 ./node_modules/.bin/nodemon lib/server.js",
-    "start": "npm run create && node lib/server.js"
+    "start": "npm run create && node lib/server.js",
+    "check-coverage": "npm run coverage && node_modules/.bin/istanbul check-coverage --statements 100 --functions 100 --lines 100 --branches 100"
   },
   "repository": {
     "type": "git",
@@ -46,6 +48,7 @@
     "hoek": "^3.0.4",
     "joi": "^8.0.4",
     "jsonwebtoken": "^5.7.0",
+    "pg": "^4.5.1",
     "pg-escape": "^0.2.0",
     "validator": "^5.1.0",
     "vision": "^4.0.1"
@@ -54,7 +57,11 @@
     "decache": "^3.0.5",
     "istanbul": "^0.4.2",
     "nodemon": "^1.9.1",
+    "pre-commit": "^1.1.2",
     "tap-spec": "^4.1.1",
     "tape": "^4.4.0"
-  }
+  },
+  "pre-commit": [
+    "check-coverage"
+  ]
 }

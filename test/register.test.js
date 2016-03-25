@@ -74,6 +74,18 @@ test(file+"Attempt to re-register with the same email address", function(t) {
   });
 });
 
+var pg = require('pg');
 test.onFinish(function () {
-  server.stop(function(){ });
+  server.stop(function(){ }); // stop the hapi server
+  var client = new pg.Client(process.env.DATABASE_URL);
+  client.connect(function (err) {
+    console.log(err);
+    var file = require('path').resolve(__dirname + '/database_setup.sql');
+    var query = 'DELETE FROM people WHERE email=$1';
+    console.log('\n', query);
+    client.query(query, ['alex@example.net'], function(err, result) {
+      console.log(err, result);
+      client.end(); // close connection to database
+    });
+  });
 })
