@@ -76,6 +76,7 @@ test(file+"Attempt to re-register with the same email address", function(t) {
 
 var pg = require('pg');
 test.onFinish(function () {
+  server.stop(function(){ }); // stop the hapi server
   var client = new pg.Client(process.env.DATABASE_URL);
   client.connect(function (err) {
     console.log(err);
@@ -85,7 +86,6 @@ test.onFinish(function () {
     client.query(query, ['alex@example.net'], function(err, result) {
       console.log(err, result);
       client.end(); // close connection to database
-        server.stop(function(){ });
     });
   });
 })
