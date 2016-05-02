@@ -23,7 +23,7 @@ INSERT INTO people (email, name, password)
 /* sessions */
 CREATE TABLE IF NOT EXISTS sessions (
   session_id VARCHAR(36),
-  person_id INTEGER NOT NULL,
+  person_id INTEGER NOT NULL REFERENCES people (id),
   start_timestamp INTEGER DEFAULT EXTRACT(EPOCH FROM CURRENT_TIMESTAMP),
   end_timestamp INTEGER DEFAULT null
 );
