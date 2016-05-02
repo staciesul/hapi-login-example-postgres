@@ -6,7 +6,7 @@ function create_tables (callback) {
   var client = new pg.Client(process.env.DATABASE_URL);
   client.connect(function(err) {
     assert(!err); // die if we cannot connect
-    var file = require('path').resolve(__dirname + '/database_setup.sql');
+    var file = require('path').resolve('./lib/database_setup.sql');
     var query = require('fs').readFileSync(file, 'utf8').toString();
     console.log('\n', query);
     client.query(query, function(err, result) {
