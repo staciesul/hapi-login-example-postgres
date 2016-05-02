@@ -36,30 +36,30 @@
   "homepage": "https://github.com/dwyl/hapi-login-example-postgres#readme",
   "dependencies": {
     "aguid": "^1.0.4",
-    "bcrypt": "^0.8.5",
+    "bcrypt": "^0.8.6",
     "boom": "^3.1.2",
-    "env2": "^2.0.6",
+    "env2": "^2.0.7",
     "handlebars": "^4.0.5",
-    "hapi": "^13.0.0",
-    "hapi-auth-jwt2": "^5.4.1",
-    "hapi-login": "^1.0.14",
+    "hapi": "^13.3.0",
+    "hapi-auth-jwt2": "^6.0.0",
+    "hapi-login": "^1.1.0",
     "hapi-postgres-connection": "^2.1.1",
-    "hapi-register": "^1.0.14",
-    "hoek": "^3.0.4",
-    "joi": "^8.0.4",
-    "jsonwebtoken": "^5.7.0",
-    "pg": "^4.5.1",
+    "hapi-register": "^1.1.0",
+    "hoek": "^4.0.0",
+    "joi": "^8.0.5",
+    "jsonwebtoken": "^6.2.0",
+    "pg": "^4.5.5",
     "pg-escape": "^0.2.0",
-    "validator": "^5.1.0",
-    "vision": "^4.0.1"
+    "validator": "^5.2.0",
+    "vision": "^4.1.0"
   },
   "devDependencies": {
     "decache": "^3.0.5",
-    "istanbul": "^0.4.2",
-    "nodemon": "^1.9.1",
+    "istanbul": "^0.4.3",
+    "nodemon": "^1.9.2",
     "pre-commit": "^1.1.2",
     "tap-spec": "^4.1.1",
-    "tape": "^4.4.0"
+    "tape": "^4.5.1"
   },
   "pre-commit": [
     "check-coverage"
