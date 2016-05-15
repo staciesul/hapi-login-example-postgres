@@ -20,7 +20,7 @@ test(file + "GET / (confirm server is working with a basic test)", function(t) {
 
 var test_email = 'dwyl.test+register@gmail.com';
 
-test(file+"/login without password", function(t) {
+test(file+"attempt to /login without password", function(t) {
   var options = {
     method: "POST",
     url: "/login",

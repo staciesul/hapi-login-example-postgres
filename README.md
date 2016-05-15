@@ -74,7 +74,7 @@ npm install
 
 #### 3. Ensure you have the Required Environment Variables
 
-create an `config.env` file in your `hapi-login-example-postgres` directory.
+create an `.env` file in your `hapi-login-example-postgres` directory.
 add a line for your `DATABASE_URL` variable and one for `JWT_SECRET`:
 e.g:
 ```sh
