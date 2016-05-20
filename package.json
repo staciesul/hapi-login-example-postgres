@@ -41,7 +41,7 @@
     "env2": "^2.1.0",
     "handlebars": "^4.0.5",
     "hapi": "^13.4.0",
-    "hapi-auth-jwt2": "^6.0.0",
+    "hapi-auth-jwt2": "^7.0.0",
     "hapi-login": "^1.2.0",
     "hapi-postgres-connection": "^2.1.1",
     "hapi-register": "^1.1.0",
