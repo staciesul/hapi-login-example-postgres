@@ -79,13 +79,14 @@ test.onFinish(function () {
   server.stop(function(){ }); // stop the hapi server
   var client = new pg.Client(process.env.DATABASE_URL);
   client.connect(function (err) {
-    console.log(err);
+    // console.log(err);
     var file = require('path').resolve(__dirname + '/database_setup.sql');
     var query = 'DELETE FROM people WHERE email=$1';
-    console.log('\n', query);
+    console.log('\n Tare Down:', query);
     client.query(query, ['alex@example.net'], function(err, result) {
-      console.log(err, result);
+      // console.log(err, result);
       client.end(); // close connection to database
+      console.log('Done.');
     });
   });
 })
