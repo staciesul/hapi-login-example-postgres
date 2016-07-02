@@ -47,11 +47,13 @@ test(file+'Attempt to register with unrecognised field', function(t){
   });
 })
 
+var EMAIL = 'alex.' + Date.now() + '@example.net'
+
 test(file+"Register with email and password", function(t) {
   var options = {
     method: "POST",
     url: "/register",
-    payload : { email:'alex@example.net', password: 'pass4567' }
+    payload : { email:EMAIL, password: 'pass4567' }
   };
 
   server.inject(options, function(response) {
@@ -65,7 +67,7 @@ test(file+"Attempt to re-register with the same email address", function(t) {
   var options = {
     method: "POST",
     url: "/register",
-    payload : { email:'alex@example.net', password: 'pass4567' }
+    payload : { email:EMAIL, password: 'pass4567' }
   };
 
   server.inject(options, function(response) {
@@ -74,18 +76,7 @@ test(file+"Attempt to re-register with the same email address", function(t) {
   });
 });
 
-var pg = require('pg');
 test.onFinish(function () {
-  server.stop(function(){ }); // stop the hapi server
-  var client = new pg.Client(process.env.DATABASE_URL);
-  client.connect(function (err) {
-    console.log(err);
-    var file = require('path').resolve(__dirname + '/database_setup.sql');
-    var query = 'DELETE FROM people WHERE email=$1';
-    console.log('\n', query);
-    client.query(query, ['alex@example.net'], function(err, result) {
-      console.log(err, result);
-      client.end(); // close connection to database
-    });
-  });
-})
+  server.stop(function(){ console.log('Done.'); }); // stop the hapi server
+  process.exit();
+});

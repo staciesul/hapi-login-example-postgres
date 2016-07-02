@@ -91,7 +91,7 @@ export JWT_SECRET=https://git.io/vaN7A
 npm test
 ```
 
-Note: running `npm test` will first execute `npm run create` which creates
+**Note**: running `npm test` will first execute `npm run create` which creates
 the necessary Database Tables to run the app. see:
 [/test/database_setup.sql](https://github.com/dwyl/hapi-login-example-postgres/blob/master/test/database_setup.sql)
 
