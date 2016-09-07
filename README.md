@@ -104,6 +104,8 @@ npm run dev
 That's it.  
 Now, ~~hack~~ *customise* it to your heart's content!
 
+### Demo Screenshots
+
 When you visit http://localhost:8000/ you will see a login form, you can login with any valid email address:
 ![hapi-login-01](https://cloud.githubusercontent.com/assets/194400/10522464/312648ca-736d-11e5-9f9f-36e39755b186.png)
 
