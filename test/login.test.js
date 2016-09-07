@@ -84,8 +84,9 @@ test(file+"/login with unregistered email address", function(t) {
   });
 });
 
-var COOKIE;
+
 test(file+"/login With Valid Data (Success Test)", function(t) {
+  var COOKIE;
   // first register a new account
   var email = 'dwyl.test+' + Math.floor(Math.random()*1000000)  + '@gmail.com';
   // console.log(email);
@@ -95,19 +96,22 @@ test(file+"/login With Valid Data (Success Test)", function(t) {
     payload : { email: email, password: 'supersecret' }
   };
   server.inject(options, function(response) {
-    console.log(response.statusCode);
     t.equal(response.statusCode, 200, "Registration succeeded for: "+email);
     options.url = '/login'; // now login
     server.inject(options, function(response) {
       t.equal(response.statusCode, 200, "Login Succeeded!");
-      COOKIE = response.headers['set-cookie'][0];
-      var token = response.headers['set-cookie'][0].replace('token=', '');
+      // console.log(' - - - - - - - - - - - - - - - - - - ');
+      // console.log(response.headers);
+      // console.log(' - - - - - - - - - - - - - - - - - - ');
+      COOKIE = response.headers['set-cookie'][0].split(';')[0].replace('token=', '');
+      // console.log('COOKIE', COOKIE);
+      // var token = COOKIE;
       // console.log(token)
-      var decoded = JWT.decode(token);
+      var decoded = JWT.decode(COOKIE);
       // console.log(decoded);
       t.equal(decoded.sid.length, 36, 'User ID: ' + decoded.sid);
       // t.end();
-      var opts = { method: 'GET', url: '/admin', headers: { cookie: COOKIE }}
+      var opts = { method: 'GET', url: '/admin', headers: { cookie: "token=" + COOKIE }}
       server.inject(opts, function(response){
         // console.log(' - - - - - - - - - - - - - - - - - - /admin response:');
         // console.log(response.result);
