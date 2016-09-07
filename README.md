@@ -6,7 +6,7 @@ A login form using hapi-auth-register, hapi-auth-login &amp; hapi-auth-jwt2 with
 [![codecov.io](http://codecov.io/github/dwyl/hapi-login-example-postgres/coverage.svg?branch=master)](http://codecov.io/github/dwyl/hapi-login-example-postgres?branch=master)
 [![Code Climate](https://codeclimate.com/github/dwyl/hapi-login-example-postgres/badges/gpa.svg)](https://codeclimate.com/github/dwyl/hapi-login-example-postgres)
 [![Dependency Status](https://david-dm.org/dwyl/hapi-login-example-postgres.svg)](https://david-dm.org/dwyl/hapi-login-example-postgres)
-[![devDependency Status](https://david-dm.org/dwyl/hapi-login-example-postgres/dev-status.svg)](https://david-dm.org/dwyl/hapi-login-example-postgres#info=devDependencies)
+[![devDependencies Status](https://david-dm.org/dwyl/hapi-login-example-postgres/dev-status.svg)](https://david-dm.org/dwyl/hapi-login-example-postgres?type=dev)
 [![HitCount](https://hitt.herokuapp.com/dwyl/hapi-login-example-postgres.svg)](https://github.com/dwyl/hapi-login-example-postgres)
 
 ## Why?
