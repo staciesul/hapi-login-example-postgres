@@ -1,4 +1,8 @@
 # Hapi Register + Login Example (*using*) PostgreSQL
+# Adding Heroku Button for Simple Deploy
+<a href="https://heroku.com/deploy">
+  <img src="https://www.herokucdn.com/deploy/button.svg" alt="Deploy">
+</a>
 
 A login form using hapi-auth-register, hapi-auth-login &amp; hapi-auth-jwt2 with a PostgreSQL DB
 
