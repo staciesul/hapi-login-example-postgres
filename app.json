@@ -1,5 +1,5 @@
 {
-  "name": "hapi login example using postgres",
+  "name": "hapijs",
   "description": "hapi login example using postgres",
   "repository": "https://github.com/samuelsharaf/hapi-login-example-postgres",
   "logo": "https://node-js-sample.herokuapp.com/node.png",
